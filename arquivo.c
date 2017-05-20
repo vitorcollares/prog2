@@ -1,26 +1,34 @@
 #include <stdio.h>
 #include <string.h>
 
+struct cliente 
+{
+char var_sexo, nomecli[50];
+int vl_idade;    
+float vl_limite_credito;
+int cd_cli;
+}
+int const tam=100;
 int main()
 {
- 
+ struct cliente base[tam];
  FILE *arq_cliente;
- char var_sexo, var_arquivo_aux, nomecli[50];
- int cd_cli, vl_idade, indice = 0;
- float vl_limite_credito;
+ char var_arquivo_aux;
+ int indice = 0;
  arq_cliente = fopen("CLIENTE.TXT", "r");
+ int i;
 
-
- if (arq_cliente == NULL)
+  if (arq_cliente == NULL)
  {
  printf("\nArquivo CLIENTE.TXT nao pode ser aberto.");
  printf("\nOcorreu um Erro Grave ! Use alguma tecla para finalizar !");
  getch();
  }
- 
  else
  {
- var_arquivo_aux = fscanf(arq_cliente,"%d %c %s %d %f",&cd_cli,&var_sexo,&nomecli, &vl_idade, &vl_limite_credito);
+ 
+ var_arquivo_aux = fscanf(arq_cliente,"%d %c %s %d %f",&base[i].cd_cli,&base[i].var_sexo,&base[i].nomecli, &base[i].vl_idade, &base[i].vl_limite_credito);
+ 
  while (var_arquivo_aux != EOF)
  {
  indice = indice + 1;
@@ -52,4 +60,5 @@ int main()
     
     
     
+
 
